@@ -1,4 +1,4 @@
-package otmasbot;
+package osbot;
 
 import battlecode.common.GameActionException;
 import battlecode.common.*;

@@ -1,16 +1,17 @@
-package otmasbot;
+package osbot;
 
-import battlecode.common.RobotType;
+import battlecode.common.*;
+import osbot.*;
 import battlecode.common.*;
 
 public class Archon extends Bot {
-
+	
 	public static void runArchon() throws GameActionException {
-
-		Direction dir = randomDirection();
-
+		
+		
 		while (true) {
-			try {			
+			try {		
+				Direction dir = randomDirection();
 				if (rc.canBuildRobot(RobotType.GARDENER, dir)) {
 					rc.buildRobot(RobotType.GARDENER, dir);
 				} else {

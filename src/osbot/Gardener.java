@@ -1,4 +1,4 @@
-package otmasbot;
+package osbot;
 
 import battlecode.common.Direction;
 import battlecode.common.*;

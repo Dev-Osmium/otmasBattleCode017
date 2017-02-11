@@ -1,4 +1,4 @@
-package otmasbot;
+package osbot;
 import battlecode.common.*;
 
 public class Bot {
@@ -7,18 +7,20 @@ public class Bot {
 		return new Direction((float)Math.random() * 2 * (float)Math.PI);
 	}
 	public static boolean move(Direction dir) throws GameActionException {
-		return tryMove(dir,20,3);
+		return tryMove(dir /*,20,3*/);
 	}
 	
-    static boolean tryMove(Direction dir, float degreeOffset, int checksPerSide) throws GameActionException {
+    static boolean tryMove(Direction dir/*, float degreeOffset, int checksPerSide */) throws GameActionException {
 
         // First, try intended direction
         if (rc.canMove(dir)) {
             rc.move(dir);
             return true;
+        } else {
+        	return false;
         }
 
-        // Now try a bunch of similar angles
+      /*  // Now try a bunch of similar angles
         boolean moved = false;
         int currentCheck = 1;
 
@@ -38,11 +40,7 @@ public class Bot {
         }
 
         // A move never happened, so return false.
-        return false;
+        return false; */
     }
-    static RobotInfo[] getEnemyLocation(int radius) {
-    	Team team = rc.getTeam().opponent();
-    	RobotInfo[] enemyLocation;
-    	return enemyLocation = rc.senseNearbyRobots(radius, team);
-    }
+    
 }
