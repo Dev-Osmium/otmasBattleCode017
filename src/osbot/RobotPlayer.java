@@ -11,7 +11,7 @@ public class RobotPlayer {
 		RobotPlayer.rc = rc;
 		switch (rc.getType()) {
 		case ARCHON:
-			runArchon();
+			Archon.runArchon();
 			break;
 		case GARDENER:
 			runGardener();
@@ -29,16 +29,17 @@ public class RobotPlayer {
 	public static void runArchon() throws GameActionException {
 
 
-		while (true) {
-			try {		
-				Direction dir = randomDirection();
-				if (rc.canBuildRobot(RobotType.GARDENER, dir)) {
-					rc.buildRobot(RobotType.GARDENER, dir);
-				} else {
-					move(dir);
-				}
-				Clock.yield();
 
+			try {
+                while (true) {
+                    Direction dir = randomDirection();
+                    if (rc.canBuildRobot(RobotType.GARDENER, dir)) {
+                        rc.buildRobot(RobotType.GARDENER, dir);
+                    } else {
+                        move(dir);
+                    }
+                    Clock.yield();
+                }
 			}
 			catch(Exception e) {
 				System.out.println("Archon Exception!");
@@ -46,7 +47,7 @@ public class RobotPlayer {
 			}
 		}
 
-	}
+
 	public static void runGardener() throws GameActionException {
 
 		while (true) {
